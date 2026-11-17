@@ -7,14 +7,16 @@ body {
 
 /* Conteneur pour HEADER et FOOTER */
 .conteneur-large {
-    width: 1240px;
+    width: 100%;
+    max-width: 1240px;
     margin: 0 auto; /* Centrage horizontal */
     background-color: #2b2b2b;
 }
 
 /* Conteneur pour le MAIN */
 .conteneur-main {
-    width: 1240px;
+    width: 100%;
+    max-width: 1240px;
     margin: 0 auto;
     background-color: #222;
     padding: 20px;
@@ -23,7 +25,8 @@ body {
 
 /* Div Main 1080px centré */
 .main {
-    width: 1080px;
+    width: 100%;
+    max-width: 1080px;
     margin: 0 auto;
 }
 
@@ -45,6 +48,20 @@ h1 {
     font-size: 40px; 
     color: #c5a059;
     text-transform: uppercase;
+    line-height: 1.1;
+}
+
+/* Titre : nom du site au-dessus du nom de la page */
+h1 .titre-site {
+    display: block;
+    font-size: 13px;
+    letter-spacing: 0.35em;
+    color: #b8b8b8;
+    margin-bottom: 4px;
+}
+
+h1 .titre-page {
+    display: block;
 }
 
 .logo {
@@ -65,6 +82,12 @@ h1 {
 }
 
 .menu li a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+}
+
+.menu li a {
     color: white;
     font-weight: bold;
     font-size: 17px;
@@ -72,7 +95,8 @@ h1 {
     border: 4px solid transparent; 
 }
 
-.menu li a:hover {
+.menu li a:hover,
+.menu li a:focus-visible {
     color: #c5a059;
     border-bottom: 4px solid #c5a059; 
 }
@@ -150,7 +174,9 @@ label {
 
 input {
     width: 100%;
+    min-height: 44px;
     padding: 8px;
+    font-size: 16px;
     margin-top: 5px;
 }
 
@@ -158,13 +184,17 @@ input {
 
 select {
     width: 100%;
+    min-height: 44px;
     padding: 8px;
+    font-size: 16px;
     margin-top: 5px;
 }
 
 button {
     margin-top: 15px;
+    min-height: 44px;
     padding: 10px 20px;
+    font-size: 16px;
     background-color: #c5a059;
     color: black;
     border: none;
@@ -172,7 +202,8 @@ button {
     font-weight: bold;
 }
 
-button:hover {
+button:hover,
+button:focus-visible {
     background-color: #b10101;
     color: white;
 }
@@ -220,7 +251,7 @@ blockquote p {
     margin-top: 10px;
     font-weight: bold;
     font-style: normal;
-    color: #b10101;
+    color: #ff6b6b;
 }
 
 /* Aside */
@@ -235,11 +266,15 @@ aside {
 aside a {
     color: #c5a059;
     text-decoration: underline;
-    display: block;
-    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 8px 0;
+    margin-bottom: 2px;
 }
 
-aside a:hover {
+aside a:hover,
+aside a:focus-visible {
     color: #ffd68b;
 }
 
@@ -321,7 +356,7 @@ footer {
     text-align: center;
     padding: 20px;
     margin-top: 20px;
-    color: #777;
+    color: #aaa;
     font-size: 15px;
 }
 
@@ -351,7 +386,7 @@ footer .credit {
     font-size: 12px;
     letter-spacing: -0.02em;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .credit-bm:hover,
@@ -360,4 +395,196 @@ footer .credit {
     color: #ffd68b;
     transform: rotate(-6deg) scale(1.08);
     box-shadow: 0 4px 14px rgba(177, 1, 1, 0.5);
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+/* Tablette paysage / petit écran d'ordinateur */
+@media (max-width: 1100px) {
+    .conteneur-main {
+        padding: 20px 24px;
+    }
+
+    .flex-ligne {
+        gap: 24px;
+    }
+
+    .menu {
+        gap: 8px;
+    }
+
+    .img-univers2 {
+        margin: 20px auto;
+    }
+}
+
+/* Tablette portrait : on empile */
+@media (max-width: 820px) {
+    header {
+        padding: 18px 0 10px;
+    }
+
+    .header-contenu {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+
+    .logo {
+        justify-content: center;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px 6px;
+    }
+
+    .menu li a {
+        padding: 6px 12px;
+        border-width: 0 0 3px;
+    }
+
+    .menu li a:hover,
+    .menu li a:focus-visible,
+    .menu li a.active {
+        border-bottom: 3px solid #c5a059;
+    }
+
+    .flex-ligne {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .colonnes {
+        width: 100%;
+    }
+
+    /* Thématique : l'image passe toujours après le texte qu'elle illustre */
+    .flex-ligne > .colonnes:first-child:has(.img-univers2) {
+        order: 2;
+    }
+
+    .img-accueil {
+        max-width: 420px;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .img-univers1 {
+        max-width: 100%;
+        margin: 10px auto 0;
+    }
+
+    .img-univers2 {
+        margin: 10px auto 0;
+    }
+
+    .carte-galerie {
+        height: 260px;
+    }
+
+    hr {
+        margin: 30px 0;
+    }
+}
+
+/* Téléphone */
+@media (max-width: 600px) {
+    .header-contenu {
+        padding: 0 12px;
+    }
+
+    .logo img {
+        height: 46px;
+        margin-right: 10px;
+    }
+
+    h1 {
+        font-size: 28px;
+        text-align: left;
+    }
+
+    h1 .titre-site {
+        font-size: 11px;
+        letter-spacing: 0.3em;
+    }
+
+    .menu li a {
+        font-size: 16px;
+        padding: 6px 10px;
+    }
+
+    .conteneur-main {
+        padding: 18px 16px;
+        min-height: 0;
+    }
+
+    h2 {
+        font-size: 22px;
+        margin-bottom: 16px;
+        padding-left: 12px;
+    }
+
+    p {
+        text-align: left;
+    }
+
+    .texte_intro::first-letter {
+        font-size: 48px;
+    }
+
+    blockquote {
+        padding: 10px 14px;
+    }
+
+    blockquote p {
+        font-size: 18px;
+    }
+
+    .liste-icone li {
+        margin-left: 22px;
+    }
+
+    form {
+        padding: 16px;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .img-accueil {
+        max-width: 300px;
+    }
+
+    /* Galerie : une colonne, sans zoom qui déborderait de l'écran */
+    .boite-galerie {
+        gap: 16px;
+    }
+
+    .carte-galerie {
+        width: 100%;
+        height: 240px;
+        margin-bottom: 0;
+    }
+
+    .carte-galerie:nth-child(even):hover {
+        transform: none;
+    }
+
+    footer {
+        padding: 18px 14px;
+        font-size: 14px;
+    }
+}
+
+/* Respect du réglage « réduire les animations » */
+@media (prefers-reduced-motion: reduce) {
+    .carte-galerie,
+    .credit-bm {
+        transition: none;
+    }
 }

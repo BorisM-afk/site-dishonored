@@ -3,7 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Dishonored - Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Dishonored fan site: the world of Dunwall, the Outsider's powers, the chaos system and an image gallery.">
+    <title>Dishonored · Fan site</title>
     <link rel="stylesheet" href="../../styles/reset.css">
     <link rel="stylesheet" href="../../styles/main.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@800&text=BM&display=swap">
@@ -16,14 +18,14 @@
         <div class="header-contenu">
             <div class="logo">
                 <img src="../../images/logo.png" alt="Dishonored Logo">
-                <h1>Home</h1>
+                <h1>Dishonored</h1>
             </div>
             <nav>
                 <ul class="menu">
                     <li><a href="home.html" class="active">Home</a></li>
                     <li><a href="thematic.html">The Universe</a></li>
                     <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="../../accueil.html">FR 🇫🇷</a></li>
+                    <li><a href="../../index.html">FR 🇫🇷</a></li>
                 </ul>
             </nav>
         </div>
@@ -82,13 +84,13 @@
 
                 <form action="#" method="post">
                     <label for="name">Your Name:</label>
-                    <input type="text" id="name" name="nom_utilisateur" required>
+                    <input type="text" id="name" name="nom_utilisateur" autocomplete="name" required>
 
                     <label for="email">Your Email:</label>
-                    <input type="email" id="email" name="email_utilisateur" required>
+                    <input type="email" id="email" name="email_utilisateur" autocomplete="email" required>
 
-                    <label for="message">Your Allegiance:</label>
-                    <select id="message" name="allegeance">
+                    <label for="allegeance">Your Allegiance:</label>
+                    <select id="allegeance" name="allegeance">
                         <option value="corvo">Loyalist (Corvo)</option>
                         <option value="daud">Whaler (Daud)</option>
                         <option value="delilah">Witch (Delilah)</option>
